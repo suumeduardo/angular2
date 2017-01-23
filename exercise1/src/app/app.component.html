@@ -1,0 +1,13 @@
+<h1>
+  {{title}}
+</h1>
+<p *ngIf="elems.length === 0">There are no names yet.</p>
+
+<div *ngFor="let elem of elems">
+  <input type="checkbox" [(ngModel)]="elem.selected">
+  <span [style.textDecoration]="elem.selected?'line-through':'none'">{{elem.name}}</span>
+  <button (click)="removeName(elem)">Delete</button>
+</div>
+<hr>
+<input #iname type="text">
+<button (click)="addName(iname.value); iname.value=''">Add name</button>
